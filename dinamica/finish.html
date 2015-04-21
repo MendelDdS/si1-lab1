@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app = "siApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Obrigado!</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Angular JS -->
+    <script src = "js/angular.min.js"></script>
+    <!-- Jquery -->
+    <script src = "js/jquery-2.1.1.min.js"></script>
+    <!-- Controllers -->
+    <script src = "js/listaAssuntos.js"></script>
+</head>
+<body  ng-controller="SubjectController">
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+
+        <div class="page-header">
+            <h1><span class="label label-success">Successo</span></h1>
+        </div>
+
+        <form>
+            <div class="alert alert-success" role="alert"><strong>Cadastrado com sucesso!</strong> Obrigado por participar</div>
+            <strong>Você pode escolher quais assuntos gostaria de aprender ou que já aprendeu:</strong>
+        </form>
+
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                    <h3>Quero aprender</h3>
+                </div>
+                <table class="table">
+                   <tbody>
+                   <tr ng-repeat="subject in assunto track by $index">
+                        <td>{{ subject }}</td>
+                        <td>
+                           <a class="btn pull-right btn-warning btn-xs" ng-click="moveAssunto($index)">Já aprendi</a>
+                           <a class="btn pull-right btn-danger btn-xs" ng-click="removeAssunto($index)">Remover</a>
+                        </td>
+                   </tr>
+                   </tbody>
+                </table>
+
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon">Assunto</span>
+                                <input type="text" ng-model="nomeAssunto" class="form-control" placeholder="Quero aprender" required>
+                            </div>
+                        </td>
+                        <td>
+                            <a class="btn pull-right btn-primary" ng-click="addAssunto(nomeAssunto)">Adicionar</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3>Assuntos que já aprendi</h3>
+                </div>
+                <table class="table">
+                    <tbody>
+                    <tr ng-repeat="subject in assuntoConhecido track by $index">
+                        <td>{{ subject }}</td>
+                        <td>
+                            <a class="btn pull-right btn-warning btn-xs" ng-click="moveAssuntoConhecido($index)">Não aprendi</a>
+                            <a class="btn pull-right btn-danger btn-xs" ng-click="removeAssuntoConhecido($index)">Remover</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-addon">Assunto</span>
+                                <input type="text" ng-model="nomeConhecido" class="form-control" placeholder="Insira os assuntos aprendidos" required>
+                            </div>
+                        </td>
+                        <td>
+                            <a class="btn pull-right btn-primary" ng-click="addAssuntoConhecido(nomeConhecido)">Adicionar</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center"><a class="btn btn-primary" href="index.html">Home</a></div>
+</div>
+    </div>
+    </div>
+
+    <script src = "js/angular.min.js"></script>
+    <script src = "js/jquery-2.1.1.min.js"></script>
+    <script src="js/listaAssuntos.js"></script>
+</body>
+</html>
