@@ -1,4 +1,4 @@
-$(function () {
+﻿$(function () {
     $("#addConteudo").submit(function (e) {
         e.preventDefault();
         var conteudo = "<tema> " + $("#conteudo").val() + "</tema>";
@@ -13,10 +13,6 @@ $(function () {
 
         limparInput();
     });
-
-    function limparInput() {
-        $("#conteudo").val("");
-    }
 
     $("#lista_aprender").on("click", ".aprendido", function () {
         var li = $(this).parent();
